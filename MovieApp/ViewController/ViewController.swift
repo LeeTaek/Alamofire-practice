@@ -41,63 +41,6 @@ class ViewController: UIViewController {
         }
     }
     
-//
-//    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
-//
-//        let sessionConfig = URLSessionConfiguration.default
-//        let session = URLSession(configuration: sessionConfig)
-//
-//        if let hasURL = URL(string: urlString) {
-//            var request = URLRequest(url: hasURL)
-//            request.httpMethod = "GET"
-//
-//        //  클로저의 데이터값은 이 함수 안에서만 유효하다.
-//        // 함수 밖에서도 데이터 값을 쓰기 위해서는 @escaping을 사용하면 된다.
-//            session.dataTask(with: request) { data, response, error in
-//                print( (response as! HTTPURLResponse).statusCode )       // 200 뜨는지 찍어봐야함
-//
-//                if let hasData = data {
-//                    completion(UIImage(data: hasData))
-//                    return
-//                }
-//            }.resume()      // 위의 동작을 실행한다는 것.
-//            session.finishTasksAndInvalidate()  //   세션 없애는 과정
-//        }
-//
-//        // 혹시 데이터가 없는 경우 위의 동작으로 메모리를 계속 잡고 있음.
-//        // 안되는 경우 nil로 반환.
-//        completion(nil)
-//
-//    }
-    
-//    func requestMovieAPI() {
-//        let term = URLQueryItem(name: "term", value: term)
-//        let media = URLQueryItem(name: "media", value: "movie")
-//        let querys = [term, media]
-//
-//        networkLayer.request(type: .searchMovie(querys: querys)) { data, response, error in
-//
-//            if let hasData = data {
-//
-//                // decode는 try-catch문으로 작성해야 한다.
-//                // do에서 에러가 나오면 catch문의 에러 사유를 출력한다.
-//                do {
-//                    self.movieModel = try JSONDecoder().decode(MovieModel.self, from: hasData)
-//
-//                    print(self.movieModel ?? "no data")
-//
-//                    DispatchQueue.main.async {
-//                        self.movieTableView.reloadData() // 테이블을 다시 읽어라.
-//                    }
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }
-//
-//    }
-    
-
     //네트워크 호출, 거의 기본적인 개념이라 이 흐름은 꼭 알아둬야 한다, status code 꼭 찾아보기
     func requestMovieAPI() {
         let sessionConfig = URLSessionConfiguration.default
